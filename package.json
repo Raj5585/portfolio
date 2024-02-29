@@ -1,8 +1,8 @@
 {
-  "homepage": "https://github.com/Raj5585/portfolio.git",
+  "homepage": "https://Raj5585.github.io/portfolio/",
   "name": "developer-portfolio-v2",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@emotion/react": "^11.10.5",
