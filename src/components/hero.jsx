@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { FiArrowDown, FiDownload, FiMail } from 'react-icons/fi';
 import { contactsData } from '../data/contactsData';
 import { headerData } from '../data/headerData';
 import useTyped from '../hooks/use-typed';
 import Fade from './fade';
+import SketchPhoto from './sketch-photo';
 import './hero.css';
 
 const SOCIALS = [
@@ -14,31 +15,8 @@ const SOCIALS = [
     { key: 'facebook', icon: FaFacebook, label: 'Facebook' },
 ];
 
-const DODGE_MOVES = [
-    [0, -34],
-    [0, 34],
-    [-40, 0],
-    [40, 0],
-    [-28, -24],
-    [30, 26],
-];
-
 function Hero() {
     const { text, blink } = useTyped(headerData.roles);
-
-    // The photo playfully dodges the cursor: dart a random direction,
-    // then spring back.
-    const [dodge, setDodge] = useState({ x: 0, y: 0 });
-    const dodgeTimer = useRef(null);
-
-    const handleDodge = () => {
-        const [x, y] = DODGE_MOVES[Math.floor(Math.random() * DODGE_MOVES.length)];
-        setDodge({ x, y });
-        clearTimeout(dodgeTimer.current);
-        dodgeTimer.current = setTimeout(() => setDodge({ x: 0, y: 0 }), 550);
-    };
-
-    useEffect(() => () => clearTimeout(dodgeTimer.current), []);
 
     return (
         <section className='hero' id='top'>
@@ -110,18 +88,9 @@ function Hero() {
                 </div>
 
                 <Fade direction='right' delay={200} className='hero-visual-wrap'>
-                    <div
-                        className='hero-visual'
-                        onPointerEnter={handleDodge}
-                        style={{ transform: `translate(${dodge.x}px, ${dodge.y}px)` }}
-                    >
+                    <div className='hero-visual'>
                         <div className='hero-photo-ring' />
-                        <img
-                            src={headerData.image}
-                            alt='Raj Kumar Dhakal'
-                            className='hero-photo'
-                            draggable={false}
-                        />
+                        <SketchPhoto src={headerData.image} alt='Raj Kumar Dhakal' />
                         <div className='hero-chip hero-chip-a tag'>SE II @ Verisk Nepal</div>
                         <div className='hero-chip hero-chip-b tag'>Micro Degree in AI</div>
                     </div>

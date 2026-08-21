@@ -8,16 +8,16 @@ export const experienceData = [
     },
     {
         id: 2,
-        company: 'Quickfox Consulting',
-        jobtitle: 'Associate Software Engineer I',
+        company: 'QuickFox Consulting',
+        jobtitle: 'Python Developer',
         startYear: 'Jan 2024',
         endYear: 'Jun 2024',
     },
     {
         id: 3,
-        company: 'Fiverr (freelance)',
-        jobtitle: 'Full-Stack Developer',
-        startYear: 'Jun 2021',
-        endYear: 'Jan 2022',
+        company: 'Fusemachines',
+        jobtitle: 'AI Fellowship',
+        startYear: 'Jan 2023',
+        endYear: 'Jan 2024',
     },
 ]

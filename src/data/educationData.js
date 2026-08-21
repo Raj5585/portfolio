@@ -1,22 +1,16 @@
 export const educationData = [
     {
         id: 1,
-        institution: 'I.O.E Thapathali Engineering Campus',
-        course: 'Bachelor Degree',
-        startYear: '2076',
-        endYear: 'Present'
+        institution: 'Thapathali Campus, IOE',
+        course: "Bachelor's in Computer Engineering",
+        startYear: 'Mar 2020',
+        endYear: 'Jun 2024',
     },
     {
         id: 2,
         institution: 'Kathmandu Model Secondary School',
-        course: 'Higher Secondary',
-        startYear: '2074',
-        endYear: '2076'
-    },
-    {
-        id: 3,
-        institution: 'Orchid Accademy',
-        course: 'Secondary School',
-        endYear: '2073'
+        course: 'High School',
+        startYear: '2017',
+        endYear: '2019',
     },
 ]
