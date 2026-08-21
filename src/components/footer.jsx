@@ -6,8 +6,7 @@ function Footer() {
         <footer className='footer'>
             <div className='container footer-inner'>
                 <p>
-                    © 2022 — {new Date().getFullYear()}{' '}
-                    <span className='footer-name'>Raj Kumar Dhakal</span>
+                    © 2022 <span className='footer-name'>Raj Kumar Dhakal</span>
                 </p>
                 <p className='footer-note'>Designed & built with care in Nepal 🇳🇵</p>
             </div>

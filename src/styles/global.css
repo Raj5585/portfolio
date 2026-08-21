@@ -137,6 +137,13 @@
   --nav-bg: rgba(237, 245, 251, 0.78);
 }
 
+/* ---------- Signature font ---------- */
+@font-face {
+  font-family: 'Bestermind';
+  src: url('../assets/fonts/BestermindRegular.ttf') format('truetype');
+  font-display: swap;
+}
+
 /* ---------- Reset & base ---------- */
 *,
 *::before,

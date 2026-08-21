@@ -64,7 +64,7 @@ function Navbar() {
         <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
             <nav className='navbar-inner container'>
                 <a href='#top' className='nav-logo' aria-label='Home'>
-                    RD<span className='nav-logo-dot'>.</span>
+                    Raj Kumar
                 </a>
 
                 <div className='nav-links'>
