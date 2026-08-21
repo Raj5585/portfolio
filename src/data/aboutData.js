@@ -6,7 +6,7 @@ export const aboutData = {
         `What drives me is the full journey: taking a model out of a notebook, wrapping it in solid engineering — Docker, PostgreSQL, clean APIs — and shipping something real.`,
     ],
     stats: [
-        { value: '2+', label: 'Years in industry' },
+        { value: '4+', label: 'Years in industry' },
         { value: '15+', label: 'Projects shipped' },
         { value: 'AI', label: 'Micro Degree, Fusemachines' },
         { value: 'SE II', label: 'Verisk Nepal' },
