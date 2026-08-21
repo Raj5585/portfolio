@@ -12,5 +12,6 @@ export const headerData = {
         'ML Practitioner',
     ],
     image: profileImg,
-    resumePdf: 'https://drive.google.com/drive/folders/1ySmLt3bb_nNNKwFm5SeYvz-cVAXSr_om',
+    // direct-download link: clicking "Download CV" saves the PDF instantly
+    resumePdf: 'https://drive.google.com/uc?export=download&id=1l81vPXVLRD_fyX4I5DzeICWOKV1nQNyv',
 };
