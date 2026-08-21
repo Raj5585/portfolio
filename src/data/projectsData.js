@@ -24,7 +24,7 @@ export const projectsData = [
                     The inclusion of an entertaining shooter game enhances its potential as a valuable tool for patient support. `,
         tags: ['SMFL ', 'C++'],
         code: '',
-        demo: 'https://github.com/Raj5585/covi-shield.git',
+        demo: 'https://github.com/Raj5585/covi-shield',
         image: covid
     },
     {
@@ -33,7 +33,7 @@ export const projectsData = [
         projectDesc: `OpenUp, a mental health app using JavaScript and Django, enables anonymous expression of feelings for individuals dealing with mental health issues. It creates a judgment-free space for users to share struggles. Premium features offer online therapy for added convenience..`,
         tags: ['Javascript', 'DJANGO', 'Sqlite'],
         code: '',
-        demo: 'https://github.com/Raj5585/OpenUp.git',
+        demo: 'https://github.com/Raj5585/OpenUp',
         image: openup
     },
     {
@@ -41,7 +41,7 @@ export const projectsData = [
         projectName: 'Music Generation Using LSTM',
         projectDesc: `The LSTM-based model creates unique melodies in seven Western music modes, targeting musicians and producers for creative inspiration. The project underscores AI's potential in music composition, highlighting advancements in the field through RNN and machine learning..`,
         tags: ['LSTM', 'NLP', 'Django'],
-        code: ' ,',
+        code: '',
         demo: 'https://github.com/orgs/Music-Generation-with-Transformers/repositories',
         image: musicgneration
     },
@@ -51,7 +51,7 @@ export const projectsData = [
         projectDesc: 'QuickNews is an automated software that scrapes recent news from top Nepali news media based on given keywords. It then sends these news articles via email to subscribed receivers.',
         tags: ['selenium', 'QuickRPA', 'Postgres'],
         code: '',
-        demo: 'https://github.com/Raj5585/QuickNews-Bot.git',
+        demo: 'https://github.com/Raj5585/QuickNews-Bot',
         image: quicknews
     },
     {
