@@ -130,12 +130,16 @@ function Ambience() {
                     const snow = dark
                         ? `rgba(235, 240, 255, ${p.alpha})`
                         : `rgba(140, 160, 200, ${p.alpha})`;
+                    // flakes get an icy blue tint; plain snow dots stay white
+                    const flakeBlue = dark
+                        ? `rgba(140, 200, 255, ${p.alpha})`
+                        : `rgba(70, 140, 220, ${p.alpha})`;
                     if (p.flake) {
                         // six-armed snowflake with branch ticks
                         ctx.save();
                         ctx.translate(p.x, p.y);
                         ctx.rotate(p.angle);
-                        ctx.strokeStyle = snow;
+                        ctx.strokeStyle = flakeBlue;
                         ctx.lineWidth = 1;
                         ctx.beginPath();
                         for (let a = 0; a < 6; a++) {
