@@ -9,8 +9,7 @@ function Footer() {
                     © 2022 <span className='footer-name'>Raj Kumar Dhakal</span>
                 </p>
                 <p className='footer-note'>
-                    Designed & built with love <span className='footer-heart'>❤</span> and care
-                    in Nepal 🇳🇵
+                    Designed & built with <span className='footer-heart'>❤</span> & care in 🇳🇵
                 </p>
             </div>
         </footer>
