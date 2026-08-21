@@ -26,8 +26,18 @@
 .footer-heart {
   color: #e63946;
   display: inline-block;
+  font-size: 1.35rem;
+  line-height: 1;
+  vertical-align: -0.12em;
   animation: heartbeat 1.3s ease-in-out infinite;
   transform-origin: center;
+}
+
+.footer-flag {
+  display: inline-block;
+  font-size: 1.05rem;
+  line-height: 1;
+  vertical-align: -0.12em;
 }
 
 @keyframes heartbeat {
