@@ -93,12 +93,17 @@ function Contact() {
                                     </span>
                                     {contactsData.phone}
                                 </a>
-                                <div className='contact-row'>
+                                <a
+                                    href={contactsData.mapUrl}
+                                    target='_blank'
+                                    rel='noreferrer'
+                                    className='contact-row'
+                                >
                                     <span className='contact-row-icon'>
                                         <FiMapPin />
                                     </span>
                                     {contactsData.address}
-                                </div>
+                                </a>
                             </div>
 
                             <div className='contact-socials'>
