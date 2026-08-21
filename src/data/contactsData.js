@@ -4,7 +4,7 @@ export const contactsData = {
     address: 'Nuwakot,Nepal',
     github: 'https://github.com/Raj5585',
     facebook: 'https://www.facebook.com/rajkumar.dhakal.9210/',
-    linkedIn: 'https://www.linkedin.com/in/raj-kumar-dhakal-0367191b0/',
+    linkedIn: 'https://www.linkedin.com/in/er-raj-kumar-dhakal-0367191b0/',
     twitter: 'https://twitter.com/raj_dhakal56',
     // medium: 'https://medium.com/@abusaid-bd',
     // stackOverflow: 'https://stackoverflow.com/users/16840768/abu-said',
