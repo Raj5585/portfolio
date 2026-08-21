@@ -168,7 +168,23 @@ function Ambience() {
             else cancelAnimationFrame(raf);
         };
 
+        // the weather lives in the hero + about area only: fade the layer
+        // out as the bottom of #about scrolls past the upper viewport
+        const onScroll = () => {
+            const about = document.getElementById('about');
+            if (!about) {
+                canvas.style.opacity = '1';
+                return;
+            }
+            const bottom = about.getBoundingClientRect().bottom;
+            const fadeRange = window.innerHeight * 0.5;
+            const opacity = Math.max(0, Math.min(1, bottom / fadeRange));
+            canvas.style.opacity = String(opacity);
+        };
+        onScroll();
+
         window.addEventListener('resize', resize);
+        window.addEventListener('scroll', onScroll, { passive: true });
         document.addEventListener('visibilitychange', onVisibility);
         raf = requestAnimationFrame(step);
 
@@ -176,6 +192,7 @@ function Ambience() {
             running = false;
             cancelAnimationFrame(raf);
             window.removeEventListener('resize', resize);
+            window.removeEventListener('scroll', onScroll);
             document.removeEventListener('visibilitychange', onVisibility);
         };
     }, [season]);
