@@ -19,9 +19,4 @@ export const educationData = [
         course: 'Secondary School',
         endYear: '2017',
     },
-    {
-        id: 4,
-        institution: 'North Star English Boarding School',
-        course: 'Primary School',
-    },
 ]
