@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import './sketch-photo.css';
 
 /**
- * The colour photo sits underneath; a canvas on top renders a pencil-sketch
- * version of it (grayscale + inverted-blur colour-dodge). Moving the pointer
- * over the canvas "erases" the sketch with a soft brush, revealing the
- * colour photo like a scratch card.
+ * The sharp colour photo sits underneath; a canvas on top renders a
+ * frosted (blurred, slightly desaturated) version of it. Moving the
+ * pointer over the canvas "wipes the frost" with a soft brush, revealing
+ * the sharp photo like a fogged-up window.
  */
 function SketchPhoto({ src, alt }) {
     const wrapRef = useRef(null);
@@ -36,13 +36,14 @@ function SketchPhoto({ src, alt }) {
             const sx = (img.width - sw) / 2;
             const sy = (img.height - sh) / 2;
 
-            ctx.filter = 'grayscale(1) contrast(1.05)';
-            ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
-            // classic pencil-sketch: colour-dodge an inverted blurred copy
-            ctx.globalCompositeOperation = 'color-dodge';
-            ctx.filter = 'grayscale(1) invert(1) blur(6px)';
-            ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
-            ctx.globalCompositeOperation = 'source-over';
+            // frosted overlay: blurred + slightly desaturated. Overscan the
+            // draw so the blur doesn't leave transparent fringes at the edges.
+            const pad = 40 * dpr;
+            ctx.filter = 'blur(14px) saturate(0.55) brightness(1.03)';
+            ctx.drawImage(
+                img, sx, sy, sw, sh,
+                -pad, -pad, canvas.width + pad * 2, canvas.height + pad * 2
+            );
             ctx.filter = 'none';
         };
 
@@ -86,7 +87,7 @@ function SketchPhoto({ src, alt }) {
                 aria-hidden='true'
             />
             <span className={`sketch-hint tag ${hintGone ? 'sketch-hint--gone' : ''}`}>
-                ✏️ rub the sketch
+                ✨ rub to reveal
             </span>
         </div>
     );
