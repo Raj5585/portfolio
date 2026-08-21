@@ -22,7 +22,9 @@ function Timeline({ icon: Icon, heading, items }) {
                         <div className='timeline-item'>
                             <span className='timeline-dot' />
                             <div className='card timeline-card'>
-                                <span className='timeline-date tag'>{item.date}</span>
+                                {item.date && (
+                                    <span className='timeline-date tag'>{item.date}</span>
+                                )}
                                 <h4 className='timeline-title'>{item.title}</h4>
                                 <p className='timeline-sub'>{item.sub}</p>
                             </div>
@@ -35,7 +37,10 @@ function Timeline({ icon: Icon, heading, items }) {
 }
 
 function Journey() {
-    const range = (start, end) => (start ? `${start} — ${end}` : `${end}`);
+    const range = (start, end) => {
+        if (start && end) return `${start} — ${end}`;
+        return end || start || null;
+    };
 
     const experience = experienceData.map((e) => ({
         id: e.id,

@@ -13,4 +13,15 @@ export const educationData = [
         startYear: '2017',
         endYear: '2019',
     },
+    {
+        id: 3,
+        institution: 'Orchid Academy, Bidur, Nuwakot',
+        course: 'Secondary School',
+        endYear: '2017',
+    },
+    {
+        id: 4,
+        institution: 'North Star English Boarding School',
+        course: 'Primary School',
+    },
 ]
