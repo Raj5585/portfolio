@@ -1,7 +1,7 @@
 export const contactsData = {
     email: 'rajdhakal.404@gmail.com',
     phone: '+9779840327380',
-    address: 'Dhikurebajar, Nuwakot, Nepal',
+    address: 'Nuwakot, Nepal',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Dhikure+Bazar%2C+Nuwakot%2C+Nepal',
     github: 'https://github.com/Raj5585',
     facebook: 'https://www.facebook.com/rajkumar.dhakal.9210/',
