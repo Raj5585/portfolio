@@ -3,6 +3,8 @@ import React, { createContext, useEffect, useState } from 'react';
 export const ThemeContext = createContext();
 
 export const SEASONS = ['rain', 'summer', 'winter', 'off'];
+// the switcher cycles the manual seasons, then 'auto' (live weather)
+const CYCLE = [...SEASONS, 'auto'];
 
 const WEATHER_CACHE_KEY = 'season-weather';
 const WEATHER_CACHE_TTL = 3 * 60 * 60 * 1000; // re-check every 3 hours
@@ -67,6 +69,8 @@ function seasonForWeather(code, temp) {
 
 function ThemeContextProvider({ children }) {
     const [isDark, setIsDark] = useState(getInitialTheme);
+    const [mode, setMode] = useState(() => (getManualSeason() ? 'manual' : 'auto'));
+    const [detectNonce, setDetectNonce] = useState(0);
     const [season, setSeason] = useState(
         () => getManualSeason() || getCachedWeatherSeason() || seasonForMonth()
     );
@@ -84,12 +88,16 @@ function ThemeContextProvider({ children }) {
         document.documentElement.dataset.season = season;
     }, [season]);
 
-    // Live weather detection: only when the visitor hasn't chosen manually
-    // and there's no fresh cached reading. IP-based location (no permission
+    // Live weather detection (auto mode): IP-based location (no permission
     // prompt) -> Open-Meteo current conditions. Falls back silently to the
-    // calendar season on any failure.
+    // calendar season on any failure. Fresh cached readings are reused.
     useEffect(() => {
-        if (getManualSeason() || getCachedWeatherSeason()) return undefined;
+        if (mode !== 'auto') return undefined;
+        const cached = getCachedWeatherSeason();
+        if (cached) {
+            setSeason(cached);
+            return undefined;
+        }
 
         let cancelled = false;
         const ctl = new AbortController();
@@ -137,24 +145,37 @@ function ThemeContextProvider({ children }) {
             cancelled = true;
             ctl.abort();
         };
-    }, []);
+    }, [mode, detectNonce]);
 
     const changeTheme = () => setIsDark((d) => !d);
 
-    // Manual choice is persisted separately and always wins over detection.
-    const cycleSeason = () =>
-        setSeason((s) => {
-            const next = SEASONS[(SEASONS.indexOf(s) + 1) % SEASONS.length];
-            try {
+    // Cycle: rain -> summer -> winter -> off -> auto (live weather) -> rain…
+    // Manual picks persist; choosing auto clears them and re-detects.
+    const cycleSeason = () => {
+        const current = mode === 'auto' ? 'auto' : season;
+        const next = CYCLE[(CYCLE.indexOf(current) + 1) % CYCLE.length];
+        try {
+            if (next === 'auto') {
+                localStorage.removeItem('season');
+                localStorage.removeItem(WEATHER_CACHE_KEY);
+            } else {
                 localStorage.setItem('season', next);
-            } catch (e) {
-                /* storage unavailable */
             }
-            return next;
-        });
+        } catch (e) {
+            /* storage unavailable */
+        }
+        if (next === 'auto') {
+            setMode('auto');
+            setSeason(seasonForMonth()); // instant fallback while detecting
+            setDetectNonce((n) => n + 1);
+        } else {
+            setMode('manual');
+            setSeason(next);
+        }
+    };
 
     return (
-        <ThemeContext.Provider value={{ isDark, changeTheme, season, cycleSeason }}>
+        <ThemeContext.Provider value={{ isDark, changeTheme, season, mode, cycleSeason }}>
             {children}
         </ThemeContext.Provider>
     );

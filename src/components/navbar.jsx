@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { BsCloudRain, BsFillMoonFill, BsFillSunFill, BsSnow, BsCircle } from 'react-icons/bs';
+import { BsCloudRain, BsFillMoonFill, BsFillSunFill, BsMagic, BsSnow, BsCircle } from 'react-icons/bs';
 import { IoClose, IoMenuSharp } from 'react-icons/io5';
 import { LuLeaf } from 'react-icons/lu';
 import { ThemeContext } from '../contexts/theme-context';
@@ -17,10 +17,11 @@ const SEASON_META = {
     summer: { icon: LuLeaf, label: 'Summer mode' },
     winter: { icon: BsSnow, label: 'Winter mode' },
     off: { icon: BsCircle, label: 'Normal mode — no weather effects' },
+    auto: { icon: BsMagic, label: 'Auto — matches your local weather' },
 };
 
 function Navbar() {
-    const { isDark, changeTheme, season, cycleSeason } = useContext(ThemeContext);
+    const { isDark, changeTheme, season, mode, cycleSeason } = useContext(ThemeContext);
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -38,15 +39,16 @@ function Navbar() {
         };
     }, [open]);
 
-    const SeasonIcon = SEASON_META[season].icon;
+    const seasonKey = mode === 'auto' ? 'auto' : season;
+    const SeasonIcon = SEASON_META[seasonKey].icon;
 
     const controls = (
         <>
             <button
                 className='nav-icon-btn'
                 onClick={cycleSeason}
-                aria-label={`Ambience: ${SEASON_META[season].label} — click to change`}
-                title={SEASON_META[season].label}
+                aria-label={`Ambience: ${SEASON_META[seasonKey].label} — click to change`}
+                title={SEASON_META[seasonKey].label}
             >
                 <SeasonIcon />
             </button>
