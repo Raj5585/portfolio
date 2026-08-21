@@ -8,6 +8,15 @@ import openup from '../assets/svg/projects/openup.png'
 
 export const projectsData = [
     {
+        id: 3,
+        projectName: 'OpenUp',
+        projectDesc: `OpenUp, a mental health app using JavaScript and Django, enables anonymous expression of feelings for individuals dealing with mental health issues. It creates a judgment-free space for users to share struggles. Premium features offer online therapy for added convenience..`,
+        tags: ['Javascript', 'DJANGO', 'Sqlite'],
+        code: '',
+        demo: 'https://github.com/Raj5585/OpenUp',
+        image: openup
+    },
+    {
         id: 1,
         projectName: 'Virtual Try On',
         projectDesc: 'Virtual Try On is a versatile fashion platform allowing users to virtually try on various clothes. Developed using Flutter for the mobile app and Django for the web app, it provides an open and interactive fashion experience.',
@@ -26,15 +35,6 @@ export const projectsData = [
         code: '',
         demo: 'https://github.com/Raj5585/covi-shield',
         image: covid
-    },
-    {
-        id: 3,
-        projectName: 'OpenUp',
-        projectDesc: `OpenUp, a mental health app using JavaScript and Django, enables anonymous expression of feelings for individuals dealing with mental health issues. It creates a judgment-free space for users to share struggles. Premium features offer online therapy for added convenience..`,
-        tags: ['Javascript', 'DJANGO', 'Sqlite'],
-        code: '',
-        demo: 'https://github.com/Raj5585/OpenUp',
-        image: openup
     },
     {
         id: 4,

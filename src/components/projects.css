@@ -8,10 +8,22 @@
   height: 100%;
 }
 
+.projects-grid--two {
+  grid-template-columns: 1fr 1fr;
+  max-width: 62rem;
+  margin-inline: auto;
+}
+
 .projects-more {
   display: flex;
   justify-content: center;
   margin-top: 2.6rem;
+}
+
+@media (max-width: 640px) {
+  .projects-grid--two {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 960px) {

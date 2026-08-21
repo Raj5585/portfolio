@@ -19,23 +19,21 @@ function Projects() {
                     </div>
                 </Fade>
 
-                <div className='projects-grid'>
-                    {projectsData.slice(0, 3).map((p, i) => (
+                <div className='projects-grid projects-grid--two'>
+                    {projectsData.slice(0, 2).map((p, i) => (
                         <Fade key={p.id} delay={i * 110}>
                             <ProjectCard project={p} />
                         </Fade>
                     ))}
                 </div>
 
-                {projectsData.length > 3 && (
-                    <Fade delay={200}>
-                        <div className='projects-more'>
-                            <Link to='/projects' className='btn btn-ghost'>
-                                View all projects <FiArrowRight />
-                            </Link>
-                        </div>
-                    </Fade>
-                )}
+                <Fade delay={200}>
+                    <div className='projects-more'>
+                        <Link to='/projects' className='btn btn-ghost'>
+                            View all projects <FiArrowRight />
+                        </Link>
+                    </div>
+                </Fade>
             </div>
         </section>
     );
