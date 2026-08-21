@@ -168,18 +168,21 @@ function Ambience() {
             else cancelAnimationFrame(raf);
         };
 
-        // the weather lives in the hero + about area only: fade the layer
-        // out as the bottom of #about scrolls past the upper viewport
+        // weather intensity by scroll: full over the hero, dimmed over the
+        // About section, and gone entirely once About scrolls away
+        const clamp01 = (v) => Math.max(0, Math.min(1, v));
         const onScroll = () => {
             const about = document.getElementById('about');
             if (!about) {
                 canvas.style.opacity = '1';
                 return;
             }
-            const bottom = about.getBoundingClientRect().bottom;
-            const fadeRange = window.innerHeight * 0.5;
-            const opacity = Math.max(0, Math.min(1, bottom / fadeRange));
-            canvas.style.opacity = String(opacity);
+            const vh = window.innerHeight;
+            // 1 at the top, easing down to 0.35 by the time About is on screen
+            const dim = 1 - 0.65 * clamp01(window.scrollY / (vh * 0.9));
+            // cuts to 0 as the bottom of About leaves the upper viewport
+            const cut = clamp01(about.getBoundingClientRect().bottom / (vh * 0.5));
+            canvas.style.opacity = String(dim * cut);
         };
         onScroll();
 
