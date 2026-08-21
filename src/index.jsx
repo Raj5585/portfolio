@@ -1,18 +1,12 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app';
 import ThemeContextProvider from './contexts/theme-context';
-import './index.css';
-
-const theme = createTheme();
+import './styles/global.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ThemeContextProvider>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <App />
   </ThemeContextProvider>
 );
-

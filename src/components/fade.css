@@ -1,0 +1,31 @@
+.fade {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade--bottom {
+  transform: translate3d(0, 36px, 0);
+}
+
+.fade--left {
+  transform: translate3d(-36px, 0, 0);
+}
+
+.fade--right {
+  transform: translate3d(36px, 0, 0);
+}
+
+.fade--visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

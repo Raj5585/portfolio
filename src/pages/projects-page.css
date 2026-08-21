@@ -1,0 +1,70 @@
+.projects-page {
+  min-height: 100vh;
+  position: relative;
+  padding: 4.5rem 0 6rem;
+}
+
+.projects-page-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.projects-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.projects-back:hover {
+  color: var(--accent);
+  transform: translateX(-3px);
+}
+
+.projects-search {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem 1.2rem;
+  max-width: 30rem;
+  margin-bottom: 3rem;
+  color: var(--text-faint);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.projects-search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  color: var(--accent);
+}
+
+.projects-search input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: var(--text);
+}
+
+.projects-search input::placeholder {
+  color: var(--text-faint);
+}
+
+.projects-page-grid {
+  align-items: stretch;
+}
+
+.projects-empty {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
