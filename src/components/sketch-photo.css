@@ -1,6 +1,9 @@
 .sketch-photo {
   position: relative;
   z-index: 1;
+  /* edges dissolve into the page so the photo feels part of the background */
+  mask-image: radial-gradient(ellipse 78% 82% at 50% 46%, #000 55%, transparent 98%);
+  -webkit-mask-image: radial-gradient(ellipse 78% 82% at 50% 46%, #000 55%, transparent 98%);
 }
 
 .sketch-canvas {
@@ -8,10 +11,20 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 28px;
   z-index: 2;
   cursor: crosshair;
   touch-action: none;
+}
+
+/* every edge of the portrait dissolves — no visible photo rectangle */
+.sketch-photo .hero-photo,
+.sketch-photo .sketch-canvas {
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 70%, transparent 99%),
+    linear-gradient(to right, transparent 0%, #000 20%, #000 80%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 70%, transparent 99%),
+    linear-gradient(to right, transparent 0%, #000 20%, #000 80%, transparent 100%);
+  -webkit-mask-composite: source-in;
 }
 
 .sketch-hint {

@@ -89,7 +89,6 @@ function Hero() {
 
                 <Fade direction='right' delay={200} className='hero-visual-wrap'>
                     <div className='hero-visual'>
-                        <div className='hero-photo-ring' />
                         <SketchPhoto src={headerData.image} alt='Raj Kumar Dhakal' />
                         <div className='hero-chip hero-chip-a tag'>SE II @ Verisk Nepal</div>
                         <div className='hero-chip hero-chip-b tag'>Micro Degree in AI</div>

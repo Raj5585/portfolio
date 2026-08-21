@@ -165,8 +165,6 @@
 
 .hero-photo {
   position: relative;
-  border-radius: 28px;
-  border: 1px solid var(--border-strong);
   width: 100%;
   object-fit: cover;
   aspect-ratio: 5/6;

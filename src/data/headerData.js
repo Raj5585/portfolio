@@ -6,10 +6,10 @@ export const headerData = {
     tagline: 'Building intelligent software, end to end.',
     description: `Software Engineer II at Verisk Nepal, where data meets engineering at scale. I turn machine learning research into products people actually use — from computer vision and NLP systems to the full-stack apps that ship them.`,
     roles: [
+        'Computer Engineer from IOE, Thapathali Campus',
+        'AWS Certified',
+        'Data Engineer',
         'AI Engineer',
-        'Software Engineer II @ Verisk',
-        'Full-Stack Developer',
-        'ML Practitioner',
     ],
     image: profileImg,
     resumePdf: 'https://drive.google.com/drive/folders/1ySmLt3bb_nNNKwFm5SeYvz-cVAXSr_om',

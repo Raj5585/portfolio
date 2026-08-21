@@ -38,8 +38,8 @@ function SketchPhoto({ src, alt }) {
 
             // frosted overlay: blurred + slightly desaturated. Overscan the
             // draw so the blur doesn't leave transparent fringes at the edges.
-            const pad = 40 * dpr;
-            ctx.filter = 'blur(14px) saturate(0.55) brightness(1.03)';
+            const pad = 24 * dpr;
+            ctx.filter = 'blur(6px) saturate(0.78)';
             ctx.drawImage(
                 img, sx, sy, sw, sh,
                 -pad, -pad, canvas.width + pad * 2, canvas.height + pad * 2
